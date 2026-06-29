@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saniaans Translator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>🌍 Saniaans Translator</h1>
+<p>Vertaal Nederlands ↔ Saniaans</p>
+</header>
+
+<nav>
+<a href="index.html">🏠 Home</a>
+<a href="woordenboek.html">📖 Woordenboek</a>
+</nav>
+
+<main>
+
+<h2>Nederlands → Saniaans</h2>
+
+<textarea id="invoer" rows="8" cols="50" placeholder="Typ hier..."></textarea>
+
+<br><br>
+
+<button onclick="vertaal()">🌍 Vertalen</button>
+<button onclick="wissen()">🗑️ Wissen</button>
+
+<br><br>
+
+<textarea id="uitvoer" rows="8" cols="50" readonly></textarea>
+
+</main>
+
+<script>
+
+const alfabet = {
+a:"z", b:"y", c:"x", d:"w", e:"v", f:"u",
+g:"t", h:"s", i:"r", j:"q", k:"p", l:"o",
+m:"n", n:"m", o:"l", p:"k", q:"j", r:"i",
+s:"h", t:"g", u:"f", v:"e", w:"d", x:"c",
+y:"b", z:"a"
+};
+
+function vertaal(){
+
+let tekst=document.getElementById("invoer").value.toLowerCase();
+
+let resultaat="";
+
+for(let letter of tekst){
+
+if(alfabet[letter]){
+resultaat+=alfabet[letter];
+}else{
+resultaat+=letter;
+}
+
+}
+
+document.getElementById("uitvoer").value=resultaat;
+
+}
+
+function wissen(){
+
+document.getElementById("invoer").value="";
+document.getElementById("uitvoer").value="";
+
+}
+
+</script>
+
+</body>
+</html>
